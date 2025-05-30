@@ -1,0 +1,141 @@
+    * {
+        font-family: "MS Sans Serif";
+    }
+
+    QRadioButton{
+        color: white;
+    }
+
+    QRadioButton::indicator:checked {
+        background-color: red;
+        border: 2px solid white;
+        border-radius: 3px;
+    }
+
+    QMainWindow {
+        background-color: black;
+    }
+
+    QMenuBar {
+        background-color: black;
+        color: white;
+    }
+
+    QMenuBar::item {
+        background-color: black;
+        color: white;
+        padding: 4px 10px;
+    }
+
+    QAction{
+        border: 1px solid white;
+    }
+
+    QMenuBar::item:selected {
+        background-color: red;
+        color: white;
+        padding-left: 5px;
+    }
+
+    QMenu {
+        background-color: black;
+        border: 1px solid white;
+        color: white;
+    }
+
+    QMenu::item {
+        background-color: black;
+        color: white;
+        padding: 4px 20px;
+        margin-left: 10px;
+    }
+
+    QMenu::item:selected {
+        background-color: red;
+        color: white;
+    }
+
+    QMenu::separator {
+        height: 1px;
+        background: white;
+        margin: 5px 10px;
+    }
+
+    QPushButton {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        font-weight: bold;
+        border-radius: 3px;
+    }
+
+    QPushButton:hover {
+        background-color: white;
+        color: red;
+        border: 1px solid red;
+        border-radius: 3px;
+    }
+
+    QLineEdit {
+        background-color: white;
+        color: black;
+        border: 1px solid red;
+        padding: 4px;
+    }
+
+    QLabel {
+        color: white;
+    }
+
+    QStatusBar {
+        background-color: black;
+        color: white;
+    }
+
+    QMenu::item:selected {
+                background-color: red;
+                color: white;
+    }
+
+    QComboBox {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 4px 10px;
+        font-weight: bold;
+        border-radius: 2px;
+        border: 1px solid red;
+    }
+
+    QComboBox QAbstractItemView {
+        background-color: black;
+        color: black;
+        selection-color: red;
+        font-weight: bold;
+        border-radius: 4px;
+    }
+
+    QComboBox:hover {
+        background-color: white;
+        color: red;
+        border: 1px solid red;
+    }
+
+    QComboBox::drop-down {
+        background-color: black;
+        subcontrol-origin: padding;
+        subcontrol-position: top right;
+        width: 20px;
+        border-left: 1px solid white;
+    }
+
+    QProgressDialog {
+        background-color: #2b2b2b;
+        color: white;
+        border: 1px solid #555;
+        padding: 10px;
+    }
+    QLabel {
+        color: white;
+    }

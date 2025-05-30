@@ -1,0 +1,139 @@
+* {
+    font-family: "Courier New", monospace;
+}
+
+QMainWindow {
+    background-color: black;
+}
+
+QMenuBar {
+    background-color: black;
+    color: lime;
+}
+
+QMenuBar::item {
+    background-color: black;
+    color: lime;
+    padding: 4px 10px;
+}
+
+QMenuBar::item:selected {
+    background-color: #00ff00;
+    color: black;
+}
+
+QMenu {
+    background-color: black;
+    border: 1px solid lime;
+    color: lime;
+}
+
+QMenu::item {
+    background-color: black;
+    color: lime;
+    padding: 4px 20px;
+}
+
+QMenu::item:selected {
+    background-color: lime;
+    color: black;
+}
+
+QMenu::separator {
+    height: 1px;
+    background: lime;
+    margin: 5px 10px;
+}
+
+QLabel {
+    color: lime;
+}
+
+QLineEdit {
+    background-color: black;
+    color: lime;
+    border: 1px solid lime;
+    padding: 4px;
+}
+
+QComboBox {
+    background-color: black;
+    color: lime;
+    border: 1px solid lime;
+    padding: 4px 10px;
+}
+
+QComboBox QAbstractItemView {
+    background-color: black;
+    color: lime;
+    selection-background-color: lime;
+    selection-color: black;
+}
+
+QComboBox::drop-down {
+    background-color: black;
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+    border-left: 1px solid lime;
+}
+
+QPushButton {
+    background-color: black;
+    color: lime;
+    border: 1px solid lime;
+    padding: 6px 12px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+QPushButton:hover {
+    background-color: lime;
+    color: black;
+    border: 1px solid lime;
+}
+
+QRadioButton {
+    color: lime;
+}
+
+QRadioButton::indicator:checked {
+    background-color: lime;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+
+QStatusBar {
+    background-color: black;
+    color: lime;
+}
+
+QTreeWidget {
+    background-color: black;
+    color: lime;
+    border: 1px solid lime;
+}
+
+QProgressDialog {
+    background-color: black;
+    color: lime;
+    border: 1px solid lime;
+    padding: 10px;
+}
+
+QHeaderView::section {
+    background-color: black;
+    color: lime;
+    border: 1px solid lime;
+}
+
+QScrollBar:vertical, QScrollBar:horizontal {
+    background: black;
+    border: 1px solid lime;
+}
+
+QScrollBar::handle:vertical, QScrollBar::handle:horizontal {
+    background: lime;
+    min-height: 20px;
+    min-width: 20px;
+}
