@@ -65,7 +65,7 @@ If you have any questions, read the FAQ in out GitHub repo first <3
 Features
 ------------
 
-- **MP3 format:** MusiCarol supports the main music format and will soon include support for FLAC.
+- **MP3 format:** MusiCarol supports mp3, as it is one of the main music formats, and will soon include support for FLAC.
 - **Mutagen:** MusiCarol uses the well-known Python library Mutagen to manage the file's metadata, in which all versions of ID3v2 are supported, and all standard ID3v2.4 frames are parsed.
 - **Open source:** MusiCarol is licensed under the GNU General Public License 2.0 or later, and is hosted on GitHub where it is actively developed.
 - **API implementation**: MusiCarol implements the MusicBrainz API to complete some missing metadata tags.
