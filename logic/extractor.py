@@ -6,7 +6,7 @@ from mutagen.id3 import ID3, APIC
 
 class MP3DataExtractor:
     def __init__(self, logging):
-        self.logger = logging
+        self.logging = logging
 
     def get_mp3_cover_image(self, mp3_path):
         try:
@@ -15,21 +15,21 @@ class MP3DataExtractor:
                 if isinstance(tag, APIC):
                     return tag.data
         except Exception as e:
-            self.logger.warning(f"No se pudo obtener la imagen: {e}")
+            self.logging.warning(f"No se pudo obtener la imagen: {e}")
         return None
 
-    def get_song_tag(self, mp3_file, tag):
+    def get_song_tag(self, mp3_path, tag):
         try:
             audio = MP3(mp3_file, ID3=ID3)
             tag_value = audio.tags.get(tag, ["Desconocido"])[0]
             return tag_value
         except Exception as e:
-            self.logger.warning(f"Error al leer metadatos en {mp3_file}: {e}")
+            self.logging.warning(f"Error al leer metadatos en {mp3_file}: {e}")
             return "Desconocido"
 
-    def get_song_year(self, ruta_mp3):
+    def get_song_year(self, mp3_path):
         try:
-            audio = MP3(ruta_mp3, ID3=ID3)
+            audio = MP3(mp3_path, ID3=ID3)
             tags = audio.tags
 
             if "TDRC" in tags:
@@ -39,5 +39,5 @@ class MP3DataExtractor:
             else:
                 return "Desconocido"
         except Exception as e:
-            self.logger.warning(f"Error al leer año de {ruta_mp3}: {e}")
+            self.logging.warning(f"Error al leer año de {mp3_path}: {e}")
             return "Desconocido"

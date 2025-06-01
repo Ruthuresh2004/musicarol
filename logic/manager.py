@@ -9,18 +9,18 @@ class MP3MetadataManager:
         self.extractor = extractor
         self.logging = logging
 
-    def get_all_tags(self, ruta_mp3):
+    def get_all_tags(self, mp3_path):
 
         try:
             return {
-                "Título": self.extractor.get_song_tag(ruta_mp3, MP3TAG_TITLE),
-                "Artista": self.extractor.get_song_tag(ruta_mp3, MP3TAG_ARTIST),
-                "Álbum": self.extractor.get_song_tag(ruta_mp3, MP3TAG_ALBUM),
-                "Género": self.extractor.get_song_tag(ruta_mp3, MP3TAG_GENRE),
-                "Año": self.extractor.get_song_year(ruta_mp3)
+                "Título": self.extractor.get_song_tag(mp3_path, MP3TAG_TITLE),
+                "Artista": self.extractor.get_song_tag(mp3_path, MP3TAG_ARTIST),
+                "Álbum": self.extractor.get_song_tag(mp3_path, MP3TAG_ALBUM),
+                "Género": self.extractor.get_song_tag(mp3_path, MP3TAG_GENRE),
+                "Año": self.extractor.get_song_year(mp3_path)
             }
         except Exception as e:
-            self.logging.warning(f"Error al leer metadatos en {ruta_mp3}: {e}")
+            self.logging.warning(f"Error al leer metadatos en {mp3_path}: {e}")
             return {}
 
     def update_metadata_in_file(self, mp3_path, changes):

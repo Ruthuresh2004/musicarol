@@ -52,7 +52,7 @@ class Ui_MainWindow(object):
 
     def setupUi(self, MainWindow):
 
-        mostrar_ayuda = self.settings.value("mostrar_ventana_ayuda", "true") == "true"
+        show_startup_help = self.settings.value("mostrar_ventana_ayuda", "true") == "true"
 
         MainWindow.setObjectName(APP_NAME)
         MainWindow.setWindowTitle(APP_NAME)
@@ -232,7 +232,7 @@ class Ui_MainWindow(object):
         self.restablecer_accion = QtWidgets.QAction("Reestablecer advertencias", MainWindow)
         self.actionMostrarAyudaInicio = QtWidgets.QAction("Mostrar ventana de ayuda al iniciar", MainWindow)
         self.actionMostrarAyudaInicio.setCheckable(True)
-        self.actionMostrarAyudaInicio.setChecked(mostrar_ayuda)
+        self.actionMostrarAyudaInicio.setChecked(show_startup_help)
 
         self.folderPreferencesActionGroup = QtWidgets.QActionGroup(MainWindow)
         self.submenuGuardadoCarpeta = QtWidgets.QMenu("Guardado en carpeta...", self.menuOpciones)

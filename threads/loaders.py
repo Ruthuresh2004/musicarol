@@ -2,19 +2,19 @@ from PyQt5.QtCore import QThread, pyqtSignal
 
 
 class FolderLoaderThread(QThread):
-    datos_cargados = pyqtSignal(dict)
+    loaded_data = pyqtSignal(dict)
 
-    def __init__(self, logic, archivos_por_carpeta, carpeta_raiz, logging):
+    def __init__(self, logic, files_by_folder, root_folder, logging):
         super().__init__()
         self.logging = logging
         self.logic = logic
-        self.archivos_por_carpeta = archivos_por_carpeta
-        self.carpeta_raiz = carpeta_raiz
+        self.files_by_folder = files_by_folder
+        self.root_folder = root_folder
 
     def run(self):
         try:
-            datos = self.logic.prepare_file_data_by_folder(self.archivos_por_carpeta, self.carpeta_raiz)
-            self.datos_cargados.emit(datos)
+            data = self.logic.prepare_file_data_by_folder(self.files_by_folder, self.root_folder)
+            self.loaded_data.emit(data)
         except Exception as e:
             self.logging.error(f"Error en FilesLoaderThread: {e}")
 
@@ -22,15 +22,15 @@ class FolderLoaderThread(QThread):
 class FilesLoaderThread(QThread):
     loaded_songs = pyqtSignal(list)
 
-    def __init__(self, logic, archivos_mp3, logging):
+    def __init__(self, logic, mp3_files, logging):
         super().__init__()
         self.logging = logging
         self.logic = logic
-        self.archivos_mp3 = archivos_mp3
+        self.mp3_files = mp3_files
 
     def run(self):
         try:
-            canciones = self.logic.prepare_file_data(self.archivos_mp3)
-            self.loaded_songs.emit(canciones)
+            songs = self.logic.prepare_file_data(self.mp3_files)
+            self.loaded_songs.emit(songs)
         except Exception as e:
             self.logging.error(f"Error en FilesLoaderThread: {e}")

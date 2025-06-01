@@ -69,7 +69,7 @@ class Controller:
         self.ui.songsTreeWidget.clear()
 
         self.folder_loader = FolderLoaderThread(self.logic, files_by_folder, folder, self.logic.logging)
-        self.folder_loader.datos_cargados.connect(self._on_folder_data_loaded)
+        self.folder_loader.loaded_data.connect(self._on_folder_data_loaded)
         self.folder_loader.start()
         self.progress_dialog = QProgressDialog("Cargando archivos...", None, 0, 0, self.ui.MainWindow)
         self.progress_dialog.setWindowTitle("Espere...")
@@ -132,8 +132,8 @@ class Controller:
     def _on_song_files_loaded(self, songs):
         self.progress_dialog.close()
 
-        raiz = QTreeWidgetItem([f"📂 Archivos desagrupados ({len(songs)})"])
-        self.ui.songsTreeWidget.addTopLevelItem(raiz)
+        root = QTreeWidgetItem([f"📂 Archivos desagrupados ({len(songs)})"])
+        self.ui.songsTreeWidget.addTopLevelItem(root)
 
         for song in songs:
             if self.shutdown_process:
@@ -142,7 +142,7 @@ class Controller:
             try:
                 item = QTreeWidgetItem([song["titulo"], song["artista"]])
                 item.setData(0, QtCore.Qt.UserRole, song["path"])
-                raiz.addChild(item)
+                root.addChild(item)
 
             except Exception as e:
                 import traceback
@@ -166,9 +166,9 @@ class Controller:
             item_tag.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
             self.ui.tagsTableWidget.setItem(i, 0, item_tag)
 
-            item_valor = QtWidgets.QTableWidgetItem(value)
-            item_valor.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
-            self.ui.tagsTableWidget.setItem(i, 1, item_valor)
+            item_value = QtWidgets.QTableWidgetItem(value)
+            item_value.setFlags(QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEnabled)
+            self.ui.tagsTableWidget.setItem(i, 1, item_value)
 
             new_tag_value = previous_changes.get(key, value)
             new_value_item = QtWidgets.QTableWidgetItem(new_tag_value)

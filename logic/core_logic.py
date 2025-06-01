@@ -95,13 +95,13 @@ class Logic:
 
         return structure
 
-    def get_artist_api(self, title, year, duracion_ms):
+    def get_artist_api(self, title, year, duration_ms):
         query = f'recording:"{title}"'
         if year:
             query += f' AND date:{year}'
 
         recordings = self.musicbrainzapi.search_recordings(query)
-        matches = [r for r in recordings if "length" in r and abs(r["length"] - duracion_ms) <= TOLERANCE_MS]
+        matches = [r for r in recordings if "length" in r and abs(r["length"] - duration_ms) <= TOLERANCE_MS]
 
         best_match = max(matches or recordings, key=lambda r: r.get("score", 0), default=None)
         artist = best_match["artist-credit"][0]["name"] if best_match else "Desconocido"
