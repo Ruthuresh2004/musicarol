@@ -18,7 +18,7 @@ class MP3DataExtractor:
             self.logging.warning(f"No se pudo obtener la imagen: {e}")
         return None
 
-    def get_song_tag(self, mp3_path, tag):
+    def get_song_tag(self, mp3_file, tag):
         try:
             audio = MP3(mp3_file, ID3=ID3)
             tag_value = audio.tags.get(tag, ["Desconocido"])[0]
@@ -27,9 +27,9 @@ class MP3DataExtractor:
             self.logging.warning(f"Error al leer metadatos en {mp3_file}: {e}")
             return "Desconocido"
 
-    def get_song_year(self, mp3_path):
+    def get_song_year(self, mp3_file):
         try:
-            audio = MP3(mp3_path, ID3=ID3)
+            audio = MP3(mp3_file, ID3=ID3)
             tags = audio.tags
 
             if "TDRC" in tags:
@@ -39,5 +39,5 @@ class MP3DataExtractor:
             else:
                 return "Desconocido"
         except Exception as e:
-            self.logging.warning(f"Error al leer año de {mp3_path}: {e}")
+            self.logging.warning(f"Error al leer año de {mp3_file}: {e}")
             return "Desconocido"
